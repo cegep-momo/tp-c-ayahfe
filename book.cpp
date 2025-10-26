@@ -33,3 +33,13 @@ void Book::checkOut(const std::string& borrower) {
     }
 }
 
+void Book::returnBook(){
+    if (isAvailable == false){
+        isAvailable = true;
+        borrowerName = "";
+        std::cout << "Le livre " << title << " a bien été retourné.\n";
+    }else{
+        std::cout << "Le livre est déjà disponible.\n";
+    }
+}
+
