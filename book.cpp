@@ -42,4 +42,21 @@ void Book::returnBook(){
         std::cout << "Le livre est déjà disponible.\n";
     }
 }
-
+std::string Book::toString() const {
+    std::string livresInfo = "Titre: " + title + "\nAuteur: " + author + "\nISBN: " + isbn + "\nDisponibilité: ";
+    if (isAvailable==true){
+        livresInfo += "Disponible\n";
+    }else{
+        livresInfo += "Non disponible. Il est emprunté par " + borrowerName + "\n";
+    }
+    return livresInfo;
+}
+std::string Book::toFileFormat() const {
+    if (isAvailable == true){
+        std::string infoDisponible = title + "," + author + "," + isbn + ",1,";
+        return infoDisponible;
+    } else {
+        std::string infoNonDisponible = title + "," + author + "," + isbn + ",0, " + borrowerName;
+        return infoNonDisponible;
+    }
+}
