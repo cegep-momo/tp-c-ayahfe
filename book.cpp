@@ -14,3 +14,10 @@ std::string Book::getAuthor()const {return author;}
 std::string Book::getISBN() const {return isbn;}
 bool Book::getAvailability() const {return isAvailable;}
 std::string Book::getBorrowerName() const {return borrowerName;}
+
+//Setters
+void Book::setTitle(const std::string&t) {title = t;}
+void Book::setAuthor(const std::string&a) {author = a;}
+void Book::setISBN(const std::string&i) {isbn = i;}
+void Book::setAvailability(bool available) {isAvailable = available;}
+void Book::setBorrowerName(const std::string& name) {borrowerName = name;}
