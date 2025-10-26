@@ -21,3 +21,15 @@ void Book::setAuthor(const std::string&a) {author = a;}
 void Book::setISBN(const std::string&i) {isbn = i;}
 void Book::setAvailability(bool available) {isAvailable = available;}
 void Book::setBorrowerName(const std::string& name) {borrowerName = name;}
+
+//Méthodes
+void Book::checkOut(const std::string& borrower) {
+    if (isAvailable == true){
+        isAvailable = false;
+        borrowerName = borrower;
+        std::cout << "Le livre " << title << " est emprunté par " << borrower << "\n";
+    }else{
+        std::cout << "Le livre n'est pas disponible.\n";
+    }
+}
+
