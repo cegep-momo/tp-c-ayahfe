@@ -11,8 +11,8 @@ using namespace std;
 
 class Library {
 private:
-    vector<unique_ptr<Book>> books;
-    vector<unique_ptr<User>> users;
+    vector<unique_ptr<Book> > books;
+    vector<unique_ptr<User> > users;
 
 public:
     // Constructor and destructor
