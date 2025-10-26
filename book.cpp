@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 #include "book.h"
 using namespace std;
 
@@ -59,4 +60,23 @@ std::string Book::toFileFormat() const {
         std::string infoNonDisponible = title + "," + author + "," + isbn + ",0, " + borrowerName;
         return infoNonDisponible;
     }
+}
+void Book::fromFileFormat(const std::string& line) {
+    std::string title_;
+    std::string author_;
+    std::string isbn_;
+    std::string availability_;
+    std::string borrower_;
+    std::stringstream ss(line);
+    getline(ss, title_, ',');
+    getline(ss, author_, ',');
+    getline(ss, isbn_, ',');
+    getline(ss, availability_, ',');
+    getline(ss, borrower_, ',');
+    title = title_;
+    author = author_;
+    isbn = isbn_;
+    isAvailable = (availability_ == "1");
+    borrowerName = borrower_;
+
 }
