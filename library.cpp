@@ -1,6 +1,6 @@
 #include <iostream>
 #include <algorithm>
-
+#include <vector>
 #include "library.h"
 
 using namespace std;
@@ -148,6 +148,20 @@ bool Library::returnBook(const string& isbn) {
 
 // Display all books
 void Library::displayAllBooks() {
+    int choix;
+    std::cout << "Trier les livres par: 1. Titre, 2. Auteur, 3. Aucun : " << choix << "\n";
+
+    if (choix == 1){
+        sort(books.begin(), books.end(),
+    [](const std::unique_ptr<Book>&a,const std::unique_ptr<Book>&b){
+        return a->getTitle() < b->getTitle();
+    }
+    );
+    }else if (choix==2) {
+
+    }
+    
+    
     if (books.empty()) {
         cout << "Aucun livre dans la bibliothèque.\n";
         return;

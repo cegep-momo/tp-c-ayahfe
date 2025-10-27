@@ -95,21 +95,21 @@ int main() {
     
     std::string reponse;
 
-    cout << "Êtes-vous sûr de vouloir supprimer ce livre? (oui/non): ";
+    cout << "Êtes-vous sûr de vouloir supprimer ce livre? (o/n): ";
     cin >> reponse;
 
-    while (reponse != "oui" && reponse != "Oui" && reponse != "non" && reponse != "Non") {
-        cout << "Réponse invalide. Veuillez répondre par 'oui' ou 'non': ";
+    while (reponse != "o" && reponse != "O" && reponse != "n" && reponse != "N") {
+        cout << "Réponse invalide. Veuillez répondre par 'o' ou 'n': ";
         cin >> reponse;
     }
 
-    if (reponse == "oui" || reponse == "Oui") {
+    if (reponse == "o" || reponse == "O") {
         if (library.removeBook(isbn)) {
             cout << "Livre supprimé avec succès !\n";
         } else {
             cout << "Livre non trouvé.\n";
         }
-    } else if (reponse == "non" || reponse == "Non") {
+    } else if (reponse == "n" || reponse == "N") {
         cout << "Le livre n'a pas été supprimé.\n";
     } 
 
