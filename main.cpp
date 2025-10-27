@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include <limits>
 #include <string>
 
@@ -86,15 +87,26 @@ int main() {
             
             case 2: { // Remove Book
                 string isbn = getInput("Entrez l'ISBN du livre à supprimer : ");
-                
+                string reponse;
+                while(true){
+                cout << "Êtes-vous sûr de vouloir supprimer ce livre? (oui/non): ";
+                getline(cin, reponse);
+
+            if (reponse == "oui" || reponse == "Oui"){
                 if (library.removeBook(isbn)) {
                     cout << "Livre supprimé avec succès !\n";
                 } else {
                     cout << "Livre non trouvé.\n";
                 }
+                break;
+            } else if (reponse == "non" || reponse == "Non"){
+                cout << "Le livre n'a pas été supprimé.\n";
+                break;
+            }}
                 pauseForInput();
                 break;
-            }
+            
+        }
             
             case 3: { // Search by Title
                 string title = getInput("Entrez le titre à rechercher : ");

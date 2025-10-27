@@ -1,6 +1,5 @@
 #include <iostream>
 #include <algorithm>
-#include <string>
 
 #include "library.h"
 
@@ -11,21 +10,7 @@ Library::Library() {}
 
 // Add book to library
 void Library::addBook(const Book& book) {
-    std::string reponse;
-    std::cout << "Voulez-vous vraiment ajouter ce livre? (oui/non): ";
-    std::cin >> reponse;
-     while (reponse != "oui" && reponse != "Oui" && reponse != "non" && reponse != "Non"){
-        std::cout << "Réponse invalide. Veuillez répondre par 'oui' ou 'non': ";
-        std::cin >> reponse;
-    }
-    
-    if (reponse == "oui" || reponse == "Oui"){
-        books.push_back(make_unique<Book>(book));
-        std::cout << "Le livre a été ajouté avec succès.\n";
-    }else if (reponse == "non" || reponse == "Non"){
-        std::cout << "Le livre n'a pas été ajouté.\n";
-    }
-   
+    books.push_back(make_unique<Book>(book));
 }
 
 // Remove book from library
