@@ -170,6 +170,7 @@ void Library::displayAllBooks() {
     }
     
     
+    
     if (books.empty()) {
         cout << "Aucun livre dans la bibliothèque.\n";
         return;
