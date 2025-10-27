@@ -54,10 +54,10 @@ std::string Book::toString() const {
 }
 std::string Book::toFileFormat() const {
     if (isAvailable == true){
-        std::string infoDisponible = title + "," + author + "," + isbn + ",1,";
+        std::string infoDisponible = title + "|" + author + "|" + isbn + "|1|";
         return infoDisponible;
     } else {
-        std::string infoNonDisponible = title + "," + author + "," + isbn + ",0, " + borrowerName;
+        std::string infoNonDisponible = title + "|" + author + "|" + isbn + "|0| " + borrowerName;
         return infoNonDisponible;
     }
 }
@@ -68,11 +68,11 @@ void Book::fromFileFormat(const std::string& line) {
     std::string availability_;
     std::string borrower_;
     std::stringstream ss(line);
-    getline(ss, title_, ',');
-    getline(ss, author_, ',');
-    getline(ss, isbn_, ',');
-    getline(ss, availability_, ',');
-    getline(ss, borrower_, ',');
+    getline(ss, title_, '|');
+    getline(ss, author_, '|');
+    getline(ss, isbn_, '|');
+    getline(ss, availability_, '|');
+    getline(ss, borrower_, '|');
     title = title_;
     author = author_;
     isbn = isbn_;
