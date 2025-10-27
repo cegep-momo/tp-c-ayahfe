@@ -149,7 +149,11 @@ bool Library::returnBook(const string& isbn) {
 // Display all books
 void Library::displayAllBooks() {
     int choix;
-    std::cout << "Trier les livres par: 1. Titre, 2. Auteur, 3. Aucun : " << choix << "\n";
+    std::cout << "Trier les livres par: \n";
+    std::cout << "1. Titre \n";
+    std::cout << "2. Auteur \n";
+    std::cout << "3. Aucun \n";
+    std::cin >> choix;
 
     if (choix == 1){
         sort(books.begin(), books.end(),
