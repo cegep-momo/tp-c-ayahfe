@@ -89,7 +89,7 @@ int main() {
     string isbn = getInput("Entrez l'ISBN du livre à supprimer : ");
     if(!library.findBookByISBN(isbn)){
         std::cout << "Livre introuvable";
-      pauseForInput;
+      pauseForInput();
     break;  
     }
     
