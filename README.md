@@ -1,0 +1,5 @@
+Question 1:
+Une fonctionnalité pas vue en classe, que j'ai utilisée est std::unique_ptr. Ce sont des pointeurs modernes qui servent à gérer la mémoire automatiquement et de manière sécurisée.En fait, les pointeurs classiques sont créés avec new et ils doivent être supprimés manuellement avec delete. Cependant, unique_ptr supprime automatiquement lorsque l'objet sort de portée. Cette fonctionnalité sert à empêcher les fuites de mémoire et des erreurs (celle de suppression multiple). Il est utilisé lorsqu'on stocke des livres, ce qui fait en sorte que tous les livres sont gérés par unique_ptr. Ensuite, make_unique va créer le livre et transférer sa propriété au vecteur. Donc, quand un livre est supprimé pendant le programme ou que le programme se termine, unique_ptr va le détruire automatiquement. Cela évite d'avoir des delete partout.
+
+Question 2: 
+En ce moment, la gestion de bibliothéque n'est pas la plus idéal pour une bibliothéque qui aura des milliers, voire des millions de livres. C'est pour cela qu'une solution adaptée aurait été de faire du C++ avec une base de données, comme MongoDB ou comme MySQL. 
