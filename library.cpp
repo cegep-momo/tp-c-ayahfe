@@ -156,13 +156,17 @@ void Library::displayAllBooks() {
     std::cin >> choix;
 
     if (choix == 1){
-        sort(books.begin(), books.end(),
+        std::sort(books.begin(), books.end(),
     [](const std::unique_ptr<Book>&a,const std::unique_ptr<Book>&b){
         return a->getTitle() < b->getTitle();
     }
     );
     }else if (choix==2) {
-
+        std::sort(books.begin(), books.end(),
+    [](const std::unique_ptr<Book>&a,const std::unique_ptr<Book>&b){
+        return a->getAuthor() < b->getAuthor();
+    }
+    );
     }
     
     
