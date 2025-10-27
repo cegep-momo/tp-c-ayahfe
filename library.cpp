@@ -155,6 +155,11 @@ void Library::displayAllBooks() {
     std::cout << "3. Aucun \n";
     std::cin >> choix;
 
+    while (choix != 1 && choix != 2 && choix != 3) {
+        cout << "Réponse invalide. Veuillez répondre par '1' ou '2' ou '3' : ";
+        cin >> choix;
+    }
+
     if (choix == 1){
         std::sort(books.begin(), books.end(),
     [](const std::unique_ptr<Book>&a,const std::unique_ptr<Book>&b){
@@ -167,6 +172,8 @@ void Library::displayAllBooks() {
         return a->getAuthor() < b->getAuthor();
     }
     );
+    }else if (choix == 3){
+        std::cout << "Aucun tri.\n";
     }
     
     
