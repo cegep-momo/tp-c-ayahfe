@@ -139,7 +139,6 @@ void FileManager::logActivity
             << "|" << title
             << "|" << userId
             << "|" << userName
-            << "|" << event
             << "\n";
         file.close();
 

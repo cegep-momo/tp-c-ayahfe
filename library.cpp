@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <vector>
 #include "library.h"
+#include "filemanager.h"
 
 using namespace std;
 
@@ -11,6 +12,9 @@ Library::Library() {}
 // Add book to library
 void Library::addBook(const Book& book) {
     books.push_back(make_unique<Book>(book));
+
+    FileManager fm;
+    fm.logActivity("Ajouté", book.getISBN(), book.getTitle(), "-", "-");
 }
 
 // Remove book from library
@@ -21,6 +25,8 @@ bool Library::removeBook(const string& isbn) {
         });
     
     if (it != books.end()) {
+        FileManager fm;
+        fm.logActivity("Effacé", (*it)->getISBN(), (*it)->getTitle(), "-", "-");
         books.erase(it);
         return true;
     }
@@ -123,6 +129,9 @@ bool Library::checkOutBook(const string& isbn, const string& userId) {
     if (book && user && book->getAvailability()) {
         book->checkOut(user->getName());
         user->borrowBook(isbn);
+        FileManager fm;
+        fm.logActivity("Emprunté", book->getISBN(), book->getTitle(), user->getUserId(), user->getName());
+
         return true;
     }
     return false;
@@ -137,6 +146,8 @@ bool Library::returnBook(const string& isbn) {
         for (auto& user : users) {
             if (user->hasBorrowedBook(isbn)) {
                 user->returnBook(isbn);
+                FileManager fm;
+                fm.logActivity("Retour", book->getISBN(), book->getTitle(), user->getUserId(), user->getName());
                 break;
             }
         }
@@ -149,7 +160,7 @@ bool Library::returnBook(const string& isbn) {
 // Display all books
 void Library::displayAllBooks() {
     int choix;
-    
+
     std::cout << "Trier les livres par: \n";
     std::cout << "1. Titre \n";
     std::cout << "2. Auteur \n";
