@@ -121,3 +121,26 @@ void FileManager::createBackup() {
     
     cout << "Fichiers de sauvegarde créés.\n";
 }
+void FileManager::logActivity
+    (const std::string& event,const std::string& isbn, const std::string& title, const std::string& userId,const std::string& userName){
+        std::ofstream file("activity.log", std::ios::app);
+        if (!file.is_open()){
+            std::cout << "Impossible d'ouvrir ce fichier pour écrire.\n";
+            return;
+        }
+
+        auto now = std::chrono::system_clock::now();
+        std::time_t now_c = std::chrono::system_clock::to_time_t(now);
+        std::tm tm_local = *std::localtime(&now_c);
+
+        file << std::put_time(&tm_local, "%Y-%m-%dT%H:%M:%S")<< "Z"
+            << "|" << event
+            << "|" << isbn
+            << "|" << title
+            << "|" << userId
+            << "|" << userName
+            << "|" << event
+            << "\n";
+        file.close();
+
+    }

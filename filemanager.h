@@ -30,7 +30,7 @@ public:
     // Utility methods
     bool fileExists(const string& filename);
     void createBackup();
-    void log(const std::string& event,const std::string& isbn, const std::string& title, const std::string& userId,const std::string& userName);
+    void logActivity(const std::string& event,const std::string& isbn, const std::string& title, const std::string& userId,const std::string& userName);
 };
 
 #endif
